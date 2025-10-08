@@ -1,0 +1,10 @@
+{
+  "hosting": {
+    "public": "D:\\USJ_2025_2026\\SistemasWeb\\portfolioLiarte\\public",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}
