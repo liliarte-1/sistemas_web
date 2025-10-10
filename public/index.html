@@ -248,11 +248,11 @@
   padding:2rem; gap:30px; align-items:center;
   max-width:1100px; justify-self:center;
   border-radius:15px; border:2px solid #000;
-  background: linear-gradient(to right, #f4f8ff 0 50%, #fff7f0 50% 100%);
+  background: linear-gradient(to right, #ffffff 0 50%, var(--color-fondo-gris) 50% 100%);
 }
 .work-card.mirror{
   grid-template-areas:"body image";
-  background: linear-gradient(to right, #fff7f0 0 50%, #f4f8ff 50% 100%);
+  background: linear-gradient(to right, var(--color-fondo-gris) 0 50%, #ffffff 50% 100%);
 }
 .work-card__image{ grid-area:image; align-self:flex-start; width:600px; height:300px; object-fit:contain; display:block; border-radius:8px; }
 .work-card__body { grid-area:body;  margin:0; }
@@ -373,7 +373,7 @@
 
 @media (max-width:768px){
   /*margen al final para que se pueda ver en movil, sino se corta*/
-  .section6-grid { padding-bottom: 230px; }
+  .section6-grid { padding-bottom: 50px; }
 
   }
 
@@ -433,7 +433,7 @@ function copiarTexto(texto) {
     <h1 class="header__titulo titulos">Don Javier Liarte</h1>
 
     <div class="header__img">
-      <img src="images/descargar.jpg" alt="Foto de Javier">
+      <img src="D:\USJ_2025_2026\SistemasWeb\portfolioLiarte\public\images\WIN_20250224_00_31_41_Pro.jpg" alt="Foto de Javier">
     </div>
 
     <p class="header__texto textos">
@@ -469,22 +469,34 @@ function copiarTexto(texto) {
     <p class="section1__about caja-gris center">About me</p>
 
     <figure class="section1__image">
-      <img src="images/IMG_E6652.JPG" alt="Foto personal en exteriores">
+      <img src="images\GzSL8iQWQAAVaCQ.jpg" alt="Foto personal en exteriores">
     </figure>
 
     <div class="section1__text textos" >
       <h2 class="titulos">Curious about me? Here you have it:</h2>
-      <p>I'm a passionate, self-proclaimed designer who specializes in full-stack development (React.js &amp; Node.js)...</p>
-      <p>I began my journey as a web developer in 2015...</p>
-      <p>I am very much a progressive thinker and enjoy working on products end to end...</p>
-      <p>Finally, some quick bits about me.</p>
+      <p>
+        I’m an aspiring data-focused developer who enjoys working with Python and exploring the fascinating world of data.
+      </p> 
+      <p>
+        I feel comfortable working with databases like MongoDB, Redis, and PostgreSQL, and I also have a good grasp of HTML and web fundamentals.
+        I’m passionate about learning how data, logic, and design come together to create meaningful digital experiences. 
+      </p>
+      <p> 
+      Although I’m still building my professional experience, I dedicate time every day to improving my skills and experimenting with new technologies. 
+      I love understanding how things work under the hood and turning complex problems into clean, efficient solutions.
+      </p> 
+      <p> 
+      In my personal life, I’d describe myself as an organized person who always strives to deliver the best possible work, no matter the task. 
+      I’m a big fan of jazz and experimental music, and I believe creativity plays a key role both in art and technology. 
+      I’m also a fast learner, adaptable to different environments, and I get along easily with people.
+      </p> 
       <ul>
-        <li>B.E. in Computer Engineering</li>
-        <li>Full-time freelancer</li>
         <li>Avid learner</li>
-        <li>Aspiring indie hacker</li>
+        <li>Creative</li>
+        <li>Adaptative</li>
+        <li>People person</li>
       </ul>
-      <p>One last thing, I'm available for freelance work...</p>
+      <p>Finally, I’m open and available for any kind of project or collaboration. If you’ve got something in mind, feel free to reach out!</p>
     </div>
   </section>
 
@@ -497,28 +509,28 @@ function copiarTexto(texto) {
 
     <div class="skills-grid">
       <figure class="skill">
-        <img src="images/IMG_E6652.JPG" alt="React"><figcaption>React</figcaption>
+        <img src="images\icons8-python-48.png" alt="Python"><figcaption>Python</figcaption>
       </figure>
       <figure class="skill">
-        <img src="images/IMG_E6652.JPG" alt="Next.js"><figcaption>Next.js</figcaption>
+        <img src="images\icons8-mongodb-48.png" alt="MongoDB"><figcaption>MongoDB</figcaption>
       </figure>
       <figure class="skill">
-        <img src="images/IMG_E6652.JPG" alt="Node.js"><figcaption>Node.js</figcaption>
+        <img src="images\icons8-postgresql-48.png" alt="PostgreSQL"><figcaption>PostgreSQL</figcaption>
       </figure>
       <figure class="skill">
-        <img src="images/IMG_E6652.JPG" alt="Express.js"><figcaption>Express.js</figcaption>
+        <img src="images\icons8-redis-48.png" alt="Redis"><figcaption>Redis</figcaption>
       </figure>
       <figure class="skill">
-        <img src="images/IMG_E6652.JPG" alt="Sass/Scss"><figcaption>Sass/Scss</figcaption>
+        <img src="images\icons8-html-50.png" alt="HTML"><figcaption>HTML</figcaption>
       </figure>
       <figure class="skill">
-        <img src="images/IMG_E6652.JPG" alt="Tailwindcss"><figcaption>Tailwindcss</figcaption>
+        <img src="images\icons8-c-50.png" alt="C++"><figcaption>C++</figcaption>
       </figure>
       <figure class="skill">
-        <img src="images/IMG_E6652.JPG" alt="Figma"><figcaption>Figma</figcaption>
+        <img src="images\icons8-chatbot-48.png" alt="ChatBots"><figcaption>ChatBots</figcaption>
       </figure>
       <figure class="skill">
-        <img src="images/IMG_E6652.JPG" alt="Cypress"><figcaption>Cypress</figcaption>
+        <img src="images\icons8-drums-48.png" alt="Drums"><figcaption>Drums</figcaption>
       </figure>
     </div>
   </section>
@@ -531,45 +543,45 @@ function copiarTexto(texto) {
       <div class="exp-card">
         <img class="exp-card__logo" src="images/IMG_E6652.JPG" alt="Upwork">
         <div class="exp-card__body textos">
-          <h3>Fimet le third</h3>
+          <h3>Machine Learning Project Developer</h3>
           <ul>
-            <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
-            <li>Ut pretium arcu et massa semper, id fringilla leo semper.</li>
-            <li>Sed quis justo ac magna.</li>
-            <li>Etiam at massa a neque sollicitudin gravida.</li>
+            <li>Designed and implemented a complete supervised machine learning workflow from data preparation to model evaluation.</li>
+            <li>Built and trained a custom “AI” model using Python and key data science libraries.</li>
+            <li>Gained hands-on experience with dataset curation, feature engineering, and performance optimization.</li>
+            <li>Strengthened analytical and problem-solving abilities while managing the project independently.</li>
           </ul>
         </div>
-        <div class="exp-card__date textos">Nov 2021 –> Present</div>
+        <div class="exp-card__date textos">6-Month Training Program —> Completed</div>
       </div>
     </div>
 
     <div class="exp-card">
         <img class="exp-card__logo" src="images/IMG_E6652.JPG" alt="Upwork">
         <div class="exp-card__body textos">
-          <h3>Sr. Frontend Developer</h3>
+          <h3>Team Coordinator & Project Organizer</h3>
           <ul>
-            <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
-            <li>Ut pretium arcu et massa semper, id fringilla leo semper.</li>
-            <li>Sed quis justo ac magna.</li>
-            <li>Etiam at massa a neque sollicitudin gravida.</li>
+            <li>From a young age, I’ve been organizing and structuring every project I’ve taken part in, whether technical or not.</li>
+            <li>Skilled at identifying teammates’ strengths and assigning tasks to maximize overall performance.</li>
+            <li>Comfortable following direction while maintaining initiative and efficiency in teamwork.</li>
+            <li>Developed strong communication and coordination skills through diverse experiences.</li>
           </ul>
         </div>
-        <div class="exp-card__date textos">Nov 2021 – Present</div>
+        <div class="exp-card__date textos">Personal Projects —> Ongoing</div>
       </div>
     </div>
 
     <div class="exp-card">
         <img class="exp-card__logo" src="images/IMG_E6652.JPG" alt="Upwork">
         <div class="exp-card__body textos">
-          <h3>Sr. Frontend Developer</h3>
+          <h3>Continuous Learner in AI & Data Technologies</h3>
           <ul>
-            <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
-            <li>Ut pretium arcu et massa semper, id fringilla leo semper.</li>
-            <li>Sed quis justo ac magna.</li>
-            <li>Etiam at massa a neque sollicitudin gravida.</li>
+            <li>Currently focused on deepening knowledge in Artificial Intelligence and Information Systems.</li>
+            <li>Always eager to experiment with new tools, frameworks, and development methodologies.</li>
+            <li>Open to collaboration, research, and real-world projects to apply and expand technical expertise.</li>
+            <li>Committed to continuous improvement and staying up-to-date in the fast-evolving tech field.</li>
           </ul>
         </div>
-        <div class="exp-card__date textos">Nov 2021 – Present</div>
+        <div class="exp-card__date textos">Self-Driven Learning —> Present</div>
       </div>
     </div>
 
@@ -584,52 +596,60 @@ function copiarTexto(texto) {
     <div class="work-list">
       <!-- normal -->
       <div class="work-card">
-  <img class="work-card__image" src="images/IMG_E6652.JPG" alt="Upwork">
+  <img class="work-card__image" src="images\444049657540-3.webp" alt="Mcqueen">
   <div class="work-card__body textos">
-    <h3>Sr. Frontend Developer</h3>
-    <ul>
-      <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
-      <li>Ut pretium arcu et massa semper, id fringilla leo semper.</li>
-      <li>Sed quis justo ac magna.</li>
-      <li>Etiam at massa a neque sollicitudin gravida.</li>
-    </ul>
+    <h3>ChatFimet – AI Chatbot Assistant</h3>
+    <p>
+      A conversational chatbot designed to provide intelligent and contextual responses using Natural Language Processing.
+    </p>
+    <p>
+      Built from scratch with Python, this project integrates a custom-trained model capable of learning from user interactions to improve over time.
+    </p>
+    <p>
+      It also includes a simple web interface for real-time chatting and data visualization of the model’s training performance.
+    </p>
 
     <div class="tags">
-      <p>Autismo</p>
-      <p>Doctor Nigllat</p>
+      <p>Python</p>
+      <p>Flask</p>
+      <p>TensorFlow</p>
+      <p>MongoDB</p>
+      <p>HTML</p>
+      <p>CSS</p>
+      <p>JavaScript</p>
+
     </div>
   </div> 
 </div>   
 
 
       <!-- espejo -->
-      <div class="work-card mirror">
-        <img class="work-card__image" src="images/IMG_E6652.JPG" alt="Upwork">
-        <div class="work-card__body textos">
-          <h3>Sr. Frontend Developer</h3>
-          <ul>
-            <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
-            <li>Ut pretium arcu et massa semper, id fringilla leo semper.</li>
-            <li>Sed quis justo ac magna.</li>
-            <li>Etiam at massa a neque sollicitudin gravida.</li>
-          </ul>
-        </div>
-      </div>
+  <div class="work-card mirror">
+    <img class="work-card__image" src="images\chatbot-icon-with-virtual-support-service-bot-or-online-artificial-intelligence-robot.webp" alt="Chatbot">
+      <div class="work-card__body textos">
+      <h3>Pack&Go – Online Backpack Marketplace</h3>
+    <p>
+      An e-commerce platform focused on backpack sales, featuring product browsing, filtering, and a secure shopping cart system.
+    </p>
+    <p>
+      The project includes user authentication, database integration for product management, and a clean responsive design for an intuitive shopping experience.
+    </p>
+    <p>
+      Developed with scalability in mind, ready to expand to other product categories.
+    </p>
 
-      <!-- otro normal -->
-      <div class="work-card">
-        <img class="work-card__image" src="images/IMG_E6652.JPG" alt="Upwork">
-        <div class="work-card__body textos">
-          <h3>Sr. Frontend Developer</h3>
-          <ul>
-            <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
-            <li>Ut pretium arcu et massa semper, id fringilla leo semper.</li>
-            <li>Sed quis justo ac magna.</li>
-            <li>Etiam at massa a neque sollicitudin gravida.</li>
-          </ul>
-        </div>
-      </div>
+    <div class="tags">
+      <p>HTML</p>
+      <p>CSS</p>
+      <p>JavaScript</p>
+      <p>Node.js</p>
+      <p>PostgreSQL</p>
+      <p>Express</p>
+      <p>Redis</p>
     </div>
+  </div> 
+</div>
+
   </section>
 
 
@@ -640,34 +660,35 @@ function copiarTexto(texto) {
   <!-- NOMBRE DE CLASE CORRECTO Y TODOS LOS CARDS DENTRO -->
   <div class="testimonials_grid">
 
-    <div class="testimonials-card">
-      <img class="testimonials-card__logo" src="images/IMG_E6652.JPG" alt="Upwork">
-      <div class="testimonials-card__body textos">
-        <p>"El pibe tiene una vision de juego increible, asusta al rival..."</p>
-        <h3>ViniciusJr</h3>
-        <p>Doctor Morera Clínicas</p>
-      </div>
+  <div class="testimonials-card">
+    <img class="testimonials-card__logo" src="images\descargar.jpg" alt="Elon Musk">
+    <div class="testimonials-card__body textos">
+      <p>"If this guy keeps working like this, I might have to hire him for my next AI project. Brilliant mindset and execution!"</p>
+      <h3>Elon Musk</h3>
+      <p>CEO at SpaceX & Tesla</p>
     </div>
-
-    <div class="testimonials-card">
-      <img class="testimonials-card__logo" src="images/IMG_E6652.JPG" alt="Upwork">
-      <div class="testimonials-card__body textos">
-        <p>"El pibe tiene una vision de juego increible, asusta al rival..."</p>
-        <h3>ViniciusJr</h3>
-        <p>Doctor Morera Clínicas</p>
-      </div>
-    </div>
-
-    <div class="testimonials-card">
-      <img class="testimonials-card__logo" src="images/IMG_E6652.JPG" alt="Upwork">
-      <div class="testimonials-card__body textos">
-        <p>"El pibe tiene una vision de juego increible, asusta al rival..."</p>
-        <h3>ViniciusJr</h3>
-        <p>Doctor Morera Clínicas</p>
-      </div>
-    </div>
-
   </div>
+
+  <div class="testimonials-card">
+    <img class="testimonials-card__logo" src="images\captura-de-pantalla-2023-09-27-a-las-9-30-17-6513da125b878.webp" alt="Dr. Morales">
+    <div class="testimonials-card__body textos">
+      <p>"A dedicated and curious student with a natural instinct for problem-solving and data analysis. Always delivers beyond expectations."</p>
+      <h3>Dr. Laura Morales</h3>
+      <p>Data Science Professor</p>
+    </div>
+  </div>
+
+  <div class="testimonials-card">
+    <img class="testimonials-card__logo" src="images\IMG_E6652.JPG" alt="Mateo">
+    <div class="testimonials-card__body textos">
+      <p>"Bro literally learns a new framework every week. If there’s a bug, he’ll find it—and fix yours too. Reliable and fast as hell."</p>
+      <h3>Mateo García</h3>
+      <p>Long-time Friend & Developer Buddy</p>
+    </div>
+  </div>
+
+</div>
+
 </section>
 
 <section class=section6-grid id=contact>
