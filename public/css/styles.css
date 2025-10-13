@@ -1,0 +1,475 @@
+
+/* GLOSARIO DE PROPIEDAD RECURRENTES */
+
+/* display:flex: activa el modo flex para alinear hijos en fila o columna */
+/* display:grid: activa el modo grid para repartir hijos en filas/columnas con áreas */
+/* flex-wrap: permite que los hijos bajen a la siguiente línea si no caben */
+/* gap: deja huecos uniformes entre hijos (sirve en flex y grid) */
+/* justify-content: alinea y reparte los hijos en el eje principal del contenedor */
+/* align-items: alinea los hijos en el eje perpendicular al principal dentro del contenedor */
+/* align-self: sobreescribe la alineación vertical/horizontal de un hijo concreto respecto al contenedor */
+/* justify-self: alinea un hijo individual en el eje horizontal dentro de su celda de grid */
+/* grid-template-columns: define cuántas columnas tiene el grid y sus anchos */
+/* grid-template-areas: nombra zonas del grid para colocar cada bloque por nombre */
+/* place-items: atajo para alinear items en grid (equivale a align-items + justify-items) */
+/* margin: separa el elemento de lo que lo rodea por fuera */
+/* padding: mete aire dentro del elemento entre su borde y su contenido */
+/* width/max-width: fija el ancho o el tope de ancho para que no crezca más de la cuenta */
+/* background: pone color o degradado de fondo */
+/* border/border-radius: dibuja el borde y redondea las esquinas */
+/* text-align: alinea el texto dentro de su caja */
+/* line-height: separa las líneas de texto para que respiren */
+/* font/font-family/font-size: define la tipografía, tamaño y peso del texto */
+/* object-fit: controla cómo encaja una imagen o media dentro de su caja (cover/contain/etc.) */
+/* white-space: controla saltos de línea y espacios (nowrap evita que se rompa la línea) */
+/* position:relative: permite posicionar hijos absolutos tomando este como referencia */
+/* cursor:pointer: cambia el cursor para indicar que se puede pulsar */
+/* box-sizing:border-box: hace que padding y borde cuenten dentro del ancho/alto declarados */
+/* @media (max-width:...): reglas que se aplican cuando la pantalla es igual o más estrecha que ese ancho */
+
+
+/* ====== Fuentes ====== */
+/* IMPORTANTE!!! NO SE USAN MAS QUE 2 FUENTES, PERO ESTA TODA LA FAMILIA DE LA FUENTE EN LA CARPETA POR SI SE QUISIESE CAMBIAR!!! */
+/* @font-face: registra una fuente local para usarla por nombre en el sitio */
+@font-face {
+  font-family: 'Inter';
+  src: url('../assets/fonts/Inter-Regular.woff2') format('woff2'),
+     url('../assets/fonts/Inter-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* :root: aquí defines variables CSS globales accesibles como var(--nombre) */
+:root {
+  --color-fondo-gris: #f5f1f1;
+}
+
+/* ====== Utilidades ====== */
+
+/* vertical-align:middle: alinea el icono con el texto en línea */
+/* margin-right:8px: separa el icono del texto a la derecha */
+.lucide { width:20px; height:20px; stroke:#000; fill:#fff; vertical-align:middle; margin-right:8px; }
+
+/* text-align:justify: estira el texto para ocupar ancho completo */
+/* line-height:1.1: deja el texto muy compacto verticalmente */
+.textos  { font-family:"Inter",sans-serif; font-size:14px; line-height:1.1; text-align:justify; }
+.titulos { font-family:"Inter",sans-serif; font-size:40px; }
+/* misma idea que .textos pero un poco mayor */
+.subtitulos  { font-family:"Inter",sans-serif; font-size:16px; line-height:1.1; text-align:justify; }
+
+
+/*cajas grises*/
+/* width:max-content: la caja crece justo lo necesario para su contenido */
+/* color:#635e5e: tono gris para el texto de la pill */
+.caja-gris{
+  display:flex;
+  flex-wrap:wrap;     /* bajan si no caben */
+  gap:8px;
+  font: 13px "Inter",sans-serif; padding:3px 15px; margin:0; background:#e0d9d9; color:#635e5e; width:max-content;
+}
+/* white-space:nowrap: evita que cada pill se rompa a varias líneas */
+.caja-gris p{
+  white-space:nowrap;
+}
+/* justify-self/align-self: centra la pill dentro de su grid padre */
+/* border-radius:6px: redondea un poco para aspecto de etiqueta */
+.caja-gris.center  { justify-self:center; align-self:center; width:max-content; border-radius:6px; text-align:center; }
+
+
+
+/* ====== Navigation ====== */
+/* margin:0 auto + max-width: centra el contenedor y limita su ancho máximo */
+/* border-bottom:1px solid: dibuja línea separadora bajo la navbar */
+.nav-grid{
+  display:flex;
+  align-items:center;
+  gap:20px;
+  background:#fff;                 
+  width:93%;
+  max-width:1800px;
+  margin:0 auto;
+  border-bottom:1px solid #e5e7eb;
+}
+
+/* tamaño de texto grande para el logo */
+.nav-logo{
+  font-size:30px
+}
+
+/* margin-left:auto: empuja el bloque de enlaces hacia la derecha */
+.nav-links{
+  display:flex;
+  gap:28px;
+  margin:0;
+  padding:0;
+  margin-left:auto;                /* empuja links hacia la derecha */
+}
+.nav-links a{
+  text-decoration:none;
+  color:#6b7280;
+}
+/* :hover: cambia color al pasar el ratón */
+.nav-links a:hover{ color:#111827 }
+
+/* Acciones a la derecha (separador + icono + botón) */
+.nav-actions{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+/* inline-flex: botón cuadrado centrado para iconos */
+.icon-btn{
+  width:36px; height:36px; border-radius:10px;
+  border:1px solid #e5e7eb; background:#00000008; cursor:pointer;
+  display:inline-flex; align-items:center; justify-content:center;
+}
+
+
+/* border-radius:9999px: truco para hacer un boton redondo */
+/* font-weight:700: texto del botón en negrita */
+.btn-pill{
+  display:inline-flex; align-items:center; justify-content:center;
+  padding:10px 16px; border-radius:9999px;
+  background:#0f172a; color:#fff; text-decoration:none; font-weight:700;
+}
+
+/* Móvil: versión simple (ocultamos links, no hay menú hamburguesa) */
+/* (max-width:768px): aplica cuando la pantalla es ≤800px */
+@media (max-width:768px){
+  .nav-links{ display:none; }
+  .nav-actions{ margin-left:auto; }
+}
+
+
+
+/* ====== Header ====== */
+/* grid-template-areas: define un layout nombrado para colocar título, texto, etc. */
+/* column-gap:10%: abre espacio ancho entre columna de texto e imagen */
+.header-grid{
+  display:grid;
+  grid-template-columns:3fr 1fr;
+  grid-template-areas:
+    "titulo imagen"
+    "texto  imagen"
+    "ubi    imagen"
+    "redes  imagen";
+  column-gap:10%;
+  align-items:start;
+  padding:80px;
+  box-sizing:border-box; /* hace que padding cuente dentro del ancho */
+  max-width:1800px;
+  margin:0 auto;
+}
+
+/* line-height:1.1: título compacto, grande y sin márgenes extra */
+.header__titulo { grid-area:titulo; font-size:80px; margin:0; line-height:1.1; align-self:center; }
+.header__texto  { grid-area:texto;  margin-top:0; }
+.header__ubi    { grid-area:ubi;    margin-top:10px; }
+.header__img    { grid-area:imagen; }
+/* display:block: quita el espacio blanco bajo la imagen inline */
+/* border-radius:8px: esquinas suaves de la foto */
+.header__img img{ width:350px; height:auto; border-radius:8px; display:block; }
+.header__redes   { grid-area:redes; }
+
+/* en móvil se apila: imagen arriba, then texto */
+@media (max-width:768px){
+  .header-grid{
+    grid-template-columns:1fr;
+    grid-template-areas:
+      "imagen"
+      "titulo"
+      "texto"
+      "ubi"
+      "redes";
+    column-gap:0; justify-content:center; padding:32px;
+  }
+}
+
+/* ====== Section 1 ====== */
+/* background: var(--color-fondo-gris): usa la variable global para fondo */
+.section1-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  grid-template-areas:
+    "about about"
+    "image text";
+  gap:2rem;
+  align-items:center;
+  background: var(--color-fondo-gris);
+  padding:50px;
+  max-width:1800px;
+  margin:0 auto;
+}
+.section1__about { grid-area:about; }
+.section1__image { grid-area:image; }
+/* margin-right:50px: separa el texto de la imagen en escritorio */
+.section1__text  { grid-area:text;  margin-right:50px; }
+/* max-width:450px: limita el ancho de la imagen para que no se dispare */
+.section1__image img{ display:block; width:350px; max-width:450px; height:auto; border-radius:8px; justify-self:center; }
+
+/* apila en móvil y deja la imagen fluida */
+@media (max-width:768px){
+  .section1-grid{
+    grid-template-columns:1fr;
+    grid-template-areas:"about" "image" "text";
+    padding:20px;
+  }
+  .section1__image img{ max-width:100%; }
+  .section1__text{ margin-right:0; }
+}
+
+/* ====== Section 2 (Skills) ====== */
+/* justify-self:center: centra el grid entero dentro de su contenedor */
+.section2-grid{
+  display:grid;
+  grid-template-columns:1fr;
+  grid-template-areas:"skills" "subtitle" "icons";
+  gap:10px;
+  align-items:start;
+  padding:60px 0;
+  justify-self: center;
+  max-width:1800px;
+}
+.section2__skills   { grid-area:skills; }
+/* align-self:center: centra verticalmente el subtítulo respecto a su fila */
+.section2__subtitle { grid-area:subtitle; justify-self:center; align-self:center; margin:1%; }
+/* repeat(4, minmax(90px,1fr)): crea 4 columnas responsivas que nunca bajan de 90px */
+/* padding-inline:500px: añade aire sólo a izquierda/derecha alrededor de los iconos */
+.skills-grid        { grid-area:icons; display:grid; grid-template-columns:repeat(4, minmax(90px,1fr)); gap:2rem 3rem; justify-items:center; align-items:center; padding-inline:500px; row-gap:3%; text-align:center; max-width:1600px; justify-self:center; }
+.skill { text-align:center; }
+/* object-fit:contain: asegura que los logos no se deformen dentro de 72x72 */
+.skill img{ width:72px; height:72px; object-fit:contain; display:block; border-radius:8px; }
+.skill figcaption{ font: 13px "Inter",sans-serif; color:#222; }
+
+/* en tablet/móvil reducimos a 2 columnas y quitamos padding lateral */
+@media (max-width:768px){
+  .skills-grid{ grid-template-columns:repeat(2, minmax(90px,1fr)); padding-inline:0; gap:1.5rem; }
+}
+
+/* ====== Section 3 (Experience) ====== */
+/* background con variable: mantiene consistencia de color de secciones alternas */
+.section3-grid{
+  display:grid;
+  grid-template-columns:1fr;
+  grid-template-areas:"title" "subtitle" "list";
+  gap:10px;
+  align-items:start;
+  padding:50px 0;
+  background: var(--color-fondo-gris);;
+  max-width:1900px;
+  margin:0 auto;
+  align-self: center;
+}
+.section3__title    { grid-area:title; }
+.section3__subtitle { grid-area:subtitle; justify-self:center; align-self:center; }
+/* justify-items:center: centra cada card dentro de su fila */
+.exp-list           { grid-area:list; display:grid; grid-template-columns:1fr; gap:10px; justify-items:center; align-self:center; }
+
+/* grid-template-areas con tres zonas: logo, cuerpo y fecha */
+/* max-width:43%: cada card ocupa menos de media pantalla para aire lateral */
+.exp-card{
+  display:grid;
+  grid-template-columns: 1fr 3fr 1fr;
+  grid-template-areas: "logo body date";
+  padding:2rem; gap:30px; background:#fff; align-items:center; justify-content:space-between;
+  max-width:43%;; justify-self:center; border-radius:15px; border:1px solid #ccc;
+  align-self: center;
+}
+/* align-self:flex-start: pega logo y fecha arriba de su celda para alineación limpia */
+.exp-card__logo { grid-area:logo; align-self:flex-start; width:72px; height:72px; object-fit:contain; display:block; border-radius:8px; }
+.exp-card__body { grid-area:body; margin:0; }
+.exp-card__date { grid-area:date; margin:0; align-self:flex-start; text-align: center;}
+
+/* en pantallas pequeñas, apila: logo → fecha → texto */
+@media (max-width:768px){
+  .exp-card{
+    grid-template-columns:1fr;
+    grid-template-areas:"logo" "date" "body";
+    max-width:65%;
+  }
+}
+
+/* ====== Section 4 (Work / Proyectos) ====== */
+.section4-grid{
+  display:grid;
+  grid-template-columns:1fr;
+  grid-template-areas:"title" "subtitle" "cards";
+  gap:10px;
+  align-items:start;
+  padding:50px 0;
+  background:#fff;
+  max-width:1600px;
+  margin:0 auto;
+}
+.section4__title    { grid-area:title; }
+.section4__subtitle { grid-area:subtitle; justify-self:center; align-self:center; }
+.work-list          { grid-area:cards; display:grid; grid-template-columns:1fr; gap:10px; justify-items:center; }
+
+/* position:relative: permite overlays futuros (badges, sombras) dentro de la card */
+/* background: linear-gradient(...): pinta mitad blanca y mitad gris para efecto “dos columnas” */
+.work-card{
+  position:relative;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  grid-template-areas:"image body cajitas_grises";
+  padding:2rem; gap:30px; align-items:center;
+  max-width:1100px; justify-self:center;
+  border-radius:15px; border:2px solid #000;
+  background: linear-gradient(to right, #ffffff 0 50%, var(--color-fondo-gris) 50% 100%);
+}
+/* variante invertida: invierte las áreas y el degradado para alternar */
+.work-card.mirror{
+  grid-template-areas:"body image";
+  background: linear-gradient(to right, var(--color-fondo-gris) 0 50%, #ffffff 50% 100%);
+}
+/* object-fit:contain + tamaño fijo: deja la captura visible sin recortes dentro de 600x300 */
+.work-card__image{ grid-area:image; align-self:flex-start; width:600px; height:300px; object-fit:contain; display:block; border-radius:8px; }
+.work-card__body { grid-area:body;  margin:0; }
+
+/* en móvil quitamos el degradado y apilamos contenido para que sea legible */
+@media (max-width:768px){
+  .section4-grid{ padding:20px;
+  grid-template-areas:"title" "subtitle" "cards"; }
+  .work-card{
+    grid-template-columns:1fr;
+    grid-template-areas:"image" "body";
+    background:#fff;
+  }
+  .work-card.mirror{
+    grid-template-columns:1fr;
+    grid-template-areas:"body" "image" ;
+    background:#fff;
+  }
+  .work-card__image{ max-width:100%;}
+}
+
+/* Tags compactos en las cards de Work */
+/* flex-wrap aquí permite que las tags salten de línea con hueco consistente */
+.tags{
+  display:flex;
+  flex-wrap:wrap;     /* bajan si no caben */
+  gap:8px;
+  margin-top:10px;
+}
+
+.tags p{
+  margin:0;
+  padding:4px 10px;
+  font-size:12px;
+  background:#e0d9d9;
+  color:#444;
+  border-radius:6px;
+  white-space:nowrap;
+}
+
+
+/* ====== Section 5 (Testimonials) ====== */
+/* width:100% + max-width: asegura que la sección ocupa ancho completo pero no sobrepasa el tope grande */
+.section5-grid{
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-areas: "title" "subtitle" "testimonials";
+  gap: 10px;
+  align-items: start;
+  padding: 50px 0;
+  background: var(--color-fondo-gris);;
+  justify-self: center;
+
+  width: 100%;       /* asegura ancho completo */
+  max-width: 1900px;   /* evita límites */
+  margin: 0;         /* sin centrado con auto */
+}
+
+.section5__title    { grid-area:title; }
+.section5__subtitle { grid-area:subtitle; justify-self:center; align-self:center; }
+.testimonials_grid  { grid-area:testimonials;}
+
+/* column-gap:50px: deja un pasillo generoso entre cards de testimonios */
+.testimonials_grid{
+  display:grid;
+  grid-template-columns:1fr 1fr 1fr;
+  justify-self:  center;
+  column-gap: 50px;
+}
+
+/* grid-template-rows:auto 4fr: cabecera ajustada y cuerpo que ocupa más espacio */
+/* place-items:center: centra logo y texto dentro de la card */
+.testimonials-card{
+  display:grid;
+  grid-template-rows: auto 4fr;
+  grid-template-areas: "logo" 
+  "body"; 
+  padding:4%; gap:3px; background:#fff; 
+  place-items: center;
+  justify-self:center; border-radius:15px; border:1px solid #ccc;
+  width:250px;
+  height:auto;
+  justify-self: center;
+  margin:0px;
+}
+.testimonials-card__logo { grid-area:logo; width:72px; height:72px; object-fit:contain; display:block; border-radius:8px;}
+.testimonials-card__body { grid-area:body; margin:0; place-items: center;}
+
+/* en tablet/móvil, una sola columna de testimonios */
+@media (max-width:768px){
+  .testimonials-card{
+    grid-template-columns:1fr;
+    grid-template-areas:"logo" "body";
+  }
+  .testimonials_grid{
+  display:grid;
+  grid-template-columns:repeat(1, minmax(90px,1fr));
+}
+}
+
+/* ====== Section 6 ====== */
+/* row-gap:0: junta título, subtítulo y contacto para un bloque compacto */
+.section6-grid{
+  display:grid;
+  grid-template-columns:1fr;
+  grid-template-areas:
+    "title"
+    "subtitle"
+    "contact"
+    "socials";
+  padding:50px 0;
+  gap:2rem;
+  align-items:center;
+  background:#ffff;
+  max-width:1800px;
+  margin:0 auto;
+  place-items: center;
+  row-gap: 0;
+}
+
+.section6__title { grid-area:title; }
+.section6__subtitle { grid-area:subtitle;   text-align: center;}
+.section6__contact  { grid-area:contact;  text-align: center;}
+.section6__socials { grid-area:socials;   text-align: center;}
+
+
+/* padding-bottom extra para evitar cortes en pantallas pequeñas con barras del navegador */
+@media (max-width:768px){
+  /*margen al final para que se pueda ver en movil, sino se corta*/
+  .section6-grid { padding-bottom: 50px; }
+
+}
+
+/* display:flex en el footer aunque no haya hijos complejos: fácil para centrar contenido */
+  .footer-grid{
+    display:flex;
+    grid-template-columns:1fr;  
+    background: var(--color-fondo-gris);
+    max-width:1900px;
+    width:100%;
+    justify-self: center;
+    place-content: center;
+  }
+
+
+
+
+/* ====== Helpers de layout de secciones ====== */
+/* max-center: patrón típico para centrar y limitar ancho del contenido */
+.max-center { max-width:1800px; margin:0 auto; }

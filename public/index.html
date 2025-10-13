@@ -4,404 +4,20 @@
 <meta charset="utf-8" />
 <title>Portfolio Don Javier</title>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" href="css/styles.css">
 
-<style> 
-/* ====== Fuentes ====== */
-@font-face {
-  font-family: 'Inter';
-  src: url('fonts/Inter-Regular.woff2') format('woff2'),
-       url('fonts/Inter-Regular.woff') format('woff');
-  font-weight: 400;
-  font-style: normal;
-}
-
-:root {
-  --color-fondo-gris: #f5f1f1;
-}
-
-/* ====== Utilidades ====== */
-.lucide { width:20px; height:20px; stroke:#000; fill:#fff; vertical-align:middle; margin-right:8px; }
-
-.textos  { font-family:"Inter",sans-serif; font-size:14px; line-height:1.1; text-align:justify; }
-.titulos { font-family:"Inter",sans-serif; font-size:40px; }
-.subtitulos  { font-family:"Inter",sans-serif; font-size:16px; line-height:1.1; text-align:justify; }
-
-
-/*cajas grises*/
-.caja-gris{
-  display:flex;
-  flex-wrap:wrap;     /* bajan si no caben */
-  gap:8px;
-  font: 13px "Inter",sans-serif; padding:3px 15px; margin:0; background:#e0d9d9; color:#635e5e; width:max-content;
-}
-.caja-gris p{
-  white-space:nowrap;
-}
-.caja-gris.center  { justify-self:center; align-self:center; width:max-content; border-radius:6px; text-align:center; }
-
-
-/* ====== Navigation ====== */
-.nav-grid{
-  display:flex;
-  align-items:center;
-  gap:20px;
-  background:#fff;                 /* #ffff -> es inválido, usa #fff */
-  width:93%;
-  max-width:1800px;
-  margin:0 auto;
-  border-bottom:1px solid #e5e7eb;
-}
-
-/* Logo */
-.nav-logo{
-  font-size:30px
-}
-
-/* Links centrados hacia la derecha */
-.nav-links{
-  display:flex;
-  gap:28px;
-  margin:0;
-  padding:0;
-  margin-left:auto;                /* empuja links hacia la derecha */
-}
-.nav-links a{
-  text-decoration:none;
-  color:#6b7280;
-}
-.nav-links a:hover{ color:#111827 }
-
-/* Acciones a la derecha (separador + icono + botón) */
-.nav-actions{
-  display:flex;
-  align-items:center;
-  gap:12px;
-}
-
-.icon-btn{
-  width:36px; height:36px; border-radius:10px;
-  border:1px solid #e5e7eb; background:#00000008; cursor:pointer;
-  display:inline-flex; align-items:center; justify-content:center;
-}
-.icon-btn:hover{ background:#00000012 }
-
-.btn-pill{
-  display:inline-flex; align-items:center; justify-content:center;
-  padding:10px 16px; border-radius:9999px;
-  background:#0f172a; color:#fff; text-decoration:none; font-weight:700;
-}
-
-/* Móvil: versión simple (ocultamos links si no tienes menú hamburguesa) */
-@media (max-width:800px){
-  .nav-links{ display:none; }
-  .nav-actions{ margin-left:auto; }
-}
-
-
-
-/* ====== Header ====== */
-.header-grid{
-  display:grid;
-  grid-template-columns:3fr 1fr;
-  grid-template-areas:
-    "titulo imagen"
-    "texto  imagen"
-    "ubi    imagen"
-    "redes  imagen";
-  column-gap:10%;
-  align-items:start;
-  padding:80px;
-  box-sizing:border-box;
-  max-width:1800px;
-  margin:0 auto;
-}
-
-.header__titulo { grid-area:titulo; font-size:80px; margin:0; line-height:1.1; align-self:center; }
-.header__texto  { grid-area:texto;  margin-top:0; }
-.header__ubi    { grid-area:ubi;    margin-top:10px; }
-.header__img    { grid-area:imagen; }
-.header__img img{ width:350px; height:auto; border-radius:8px; display:block; }
-.header__redes   { grid-area:redes; }
-
-@media (max-width:700px){
-  .header-grid{
-    grid-template-columns:1fr;
-    grid-template-areas:
-      "imagen"
-      "titulo"
-      "texto"
-      "ubi"
-      "redes";
-    column-gap:0; justify-content:center; padding:32px;
-  }
-}
-
-/* ====== Section 1 ====== */
-.section1-grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  grid-template-areas:
-    "about about"
-    "image text";
-  gap:2rem;
-  align-items:center;
-  background: var(--color-fondo-gris);
-  padding:50px;
-  max-width:1800px;
-  margin:0 auto;
-}
-.section1__about { grid-area:about; }
-.section1__image { grid-area:image; }
-.section1__text  { grid-area:text;  margin-right:50px; }
-.section1__image img{ display:block; width:350px; max-width:450px; height:auto; border-radius:8px; justify-self:center; }
-
-@media (max-width:700px){
-  .section1-grid{
-    grid-template-columns:1fr;
-    grid-template-areas:"about" "image" "text";
-    padding:20px;
-  }
-  .section1__image img{ max-width:100%; }
-  .section1__text{ margin-right:0; }
-}
-
-/* ====== Section 2 (Skills) ====== */
-.section2-grid{
-  display:grid;
-  grid-template-columns:1fr;
-  grid-template-areas:"skills" "subtitle" "icons";
-  gap:10px;
-  align-items:start;
-  padding:60px 0;
-  justify-self: center;
-  max-width:1800px;
-}
-.section2__skills   { grid-area:skills; }
-.section2__subtitle { grid-area:subtitle; justify-self:center; align-self:center; margin:1%; }
-.skills-grid        { grid-area:icons; display:grid; grid-template-columns:repeat(4, minmax(90px,1fr)); gap:2rem 3rem; justify-items:center; align-items:center; padding-inline:500px; row-gap:3%; text-align:center; max-width:1600px; justify-self:center; }
-.skill { text-align:center; }
-.skill img{ width:72px; height:72px; object-fit:contain; display:block; border-radius:8px; }
-.skill figcaption{ font: 13px "Inter",sans-serif; color:#222; }
-
-@media (max-width:768px){
-  .skills-grid{ grid-template-columns:repeat(2, minmax(90px,1fr)); padding-inline:0; gap:1.5rem; }
-}
-
-/* ====== Section 3 (Experience) ====== */
-.section3-grid{
-  display:grid;
-  grid-template-columns:1fr;
-  grid-template-areas:"title" "subtitle" "list";
-  gap:10px;
-  align-items:start;
-  padding:50px 0;
-  background: var(--color-fondo-gris);;
-  max-width:1900px;
-  margin:0 auto;
-  align-self: center;
-}
-.section3__title    { grid-area:title; }
-.section3__subtitle { grid-area:subtitle; justify-self:center; align-self:center; }
-.exp-list           { grid-area:list; display:grid; grid-template-columns:1fr; gap:10px; justify-items:center; align-self:center; }
-
-.exp-card{
-  display:grid;
-  grid-template-columns: 1fr 3fr 1fr;
-  grid-template-areas: "logo body date";
-  padding:2rem; gap:30px; background:#fff; align-items:center; justify-content:space-between;
-  max-width:43%;; justify-self:center; border-radius:15px; border:1px solid #ccc;
-  align-self: center;
-}
-.exp-card__logo { grid-area:logo; align-self:flex-start; width:72px; height:72px; object-fit:contain; display:block; border-radius:8px; }
-.exp-card__body { grid-area:body; margin:0; }
-.exp-card__date { grid-area:date; margin:0; align-self:flex-start; text-align: center;}
-
-@media (max-width:768px){
-  .exp-card{
-    grid-template-columns:1fr;
-    grid-template-areas:"logo" "date" "body";
-  }
-}
-
-/* ====== Section 4 (Work / Proyectos) ====== */
-.section4-grid{
-  display:grid;
-  grid-template-columns:1fr;
-  grid-template-areas:"title" "subtitle" "cards";
-  gap:10px;
-  align-items:start;
-  padding:50px 0;
-  background:#fff;
-  max-width:1600px;
-  margin:0 auto;
-}
-.section4__title    { grid-area:title; }
-.section4__subtitle { grid-area:subtitle; justify-self:center; align-self:center; }
-.work-list          { grid-area:cards; display:grid; grid-template-columns:1fr; gap:10px; justify-items:center; }
-
-/* Card base reutilizable */
-.work-card{
-  position:relative;
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  grid-template-areas:"image body cajitas_grises";
-  padding:2rem; gap:30px; align-items:center;
-  max-width:1100px; justify-self:center;
-  border-radius:15px; border:2px solid #000;
-  background: linear-gradient(to right, #ffffff 0 50%, var(--color-fondo-gris) 50% 100%);
-}
-.work-card.mirror{
-  grid-template-areas:"body image";
-  background: linear-gradient(to right, var(--color-fondo-gris) 0 50%, #ffffff 50% 100%);
-}
-.work-card__image{ grid-area:image; align-self:flex-start; width:600px; height:300px; object-fit:contain; display:block; border-radius:8px; }
-.work-card__body { grid-area:body;  margin:0; }
-
-@media (max-width:700px){
-  .section4-grid{ padding:20px;
-  grid-template-areas:"title" "subtitle" "cards"; }
-  .work-card{
-    grid-template-columns:1fr;
-    grid-template-areas:"image" "body";
-    background:#fff;
-  }
-  .work-card.mirror{
-    grid-template-columns:1fr;
-    grid-template-areas:"body" "image" ;
-    background:#fff;
-  }
-  .work-card__image{ max-width:100%;}
-}
-
-/* Tags compactos en las cards de Work */
-.tags{
-  display:flex;
-  flex-wrap:wrap;     /* bajan si no caben */
-  gap:8px;
-  margin-top:10px;
-}
-
-.tags p{
-  margin:0;
-  padding:4px 10px;
-  font-size:12px;
-  background:#e0d9d9;
-  color:#444;
-  border-radius:6px;
-  white-space:nowrap;
-}
-
-
-/* ====== Section 5 (Testimonials) ====== */
-.section5-grid{
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-areas: "title" "subtitle" "testimonials";
-  gap: 10px;
-  align-items: start;
-  padding: 50px 0;
-  background: var(--color-fondo-gris);;
-  justify-self: center;
-
-  width: 100%;       /* asegura ancho completo */
-  max-width: 1900px;   /* evita límites */
-  margin: 0;         /* sin centrado con auto */
-}
-
-.section5__title    { grid-area:title; }
-.section5__subtitle { grid-area:subtitle; justify-self:center; align-self:center; }
-.testimonials_grid  { grid-area:testimonials;}
-
-.testimonials_grid{
-  display:grid;
-  grid-template-columns:1fr 1fr 1fr;
-  justify-self:  center;
-  column-gap: 50px;
-}
-
-.testimonials-card{
-  display:grid;
-  grid-template-rows: auto 4fr;
-  grid-template-areas: "logo" 
-  "body"; 
-  padding:4%; gap:3px; background:#fff; 
-  place-items: center;
-  justify-self:center; border-radius:15px; border:1px solid #ccc;
-  width:250px;
-  height:auto;
-  justify-self: center;
-  margin:0px;
-}
-.testimonials-card__logo { grid-area:logo; width:72px; height:72px; object-fit:contain; display:block; border-radius:8px;}
-.testimonials-card__body { grid-area:body; margin:0; place-items: center;}
-
-@media (max-width:768px){
-  .testimonials-card{
-    grid-template-columns:1fr;
-    grid-template-areas:"logo" "body";
-  }
-  .testimonials_grid{
-  display:grid;
-  grid-template-columns:repeat(1, minmax(90px,1fr));
-}
-}
-
-/* ====== Section 6 ====== */
-.section6-grid{
-  display:grid;
-  grid-template-columns:1fr;
-  grid-template-areas:
-    "title"
-    "subtitle"
-    "contact"
-    "socials";
-  padding:50px 0;
-  gap:2rem;
-  align-items:center;
-  background:#ffff;
-  max-width:1800px;
-  margin:0 auto;
-  place-items: center;
-  row-gap: 0;
-}
-
-.section6__title { grid-area:title; }
-.section6__subtitle { grid-area:subtitle;   text-align: center;}
-.section6__contact  { grid-area:contact;  text-align: center;}
-.section6__socials { grid-area:socials;   text-align: center;}
-
-
-@media (max-width:768px){
-  /*margen al final para que se pueda ver en movil, sino se corta*/
-  .section6-grid { padding-bottom: 50px; }
-
-  }
-
-  .footer-grid{
-    display:flex;
-    grid-template-columns:1fr;  
-    background: var(--color-fondo-gris);
-    max-width:1900px;
-    width:100%;
-    justify-self: center;
-    place-content: center;
-  }
-
-
-
-
-/* ====== Helpers de layout de secciones ====== */
-.max-center { max-width:1800px; margin:0 auto; }
-</style>
 </head>
 
 <!-- ====== FUNCIONES ====== -->
 <script>
+/* navigator.clipboard.writeText: copia texto al portapapeles del sistema */
+/* alert: muestra un mensaje rápido al usuario confirmando la acción */
 function copiarTexto(texto) {
   navigator.clipboard.writeText(texto);
   alert("Copiado: " + texto);
 }
 </script>
+
 
 <body>
 
@@ -420,317 +36,271 @@ function copiarTexto(texto) {
     <button class="icon-btn" aria-label="Toggle theme">
       <i class="lucide" data-lucide="sun"></i>
     </button>
-    <a class="btn-pill" href="cv.pdf" download>Download CV</a>
+    <a class="btn-pill" href="assets/cv.pdf" download>Download CV</a>
   </div>
 </nav>
 
+<!-- ====== HEADER ====== -->
+<header class="header-grid">
+  <h1 class="header__titulo titulos">Don Javier Liarte 🐡</h1>
 
+  <div class="header__img">
+    <img src="assets/images/WIN_20250224_00_31_41_Pro.jpg" alt="Foto de Javier">
+  </div>
 
+  <p class="header__texto textos">
+   Hello fellow metalheads, I’m a student of Artificial Intelligence (AI) and Computer Engineering.
+Over the past few years, I’ve created various AI-based services focused on process automation and assisting with development and learning through their tools.
+  </p>
 
-</nav>
-  <!-- ====== HEADER ====== -->
-  <header class="header-grid">
-    <h1 class="header__titulo titulos">Don Javier Liarte</h1>
+  <div class="header__ubi textos">
+    <p><i class="lucide" data-lucide="map-pin"></i>Zaragoza, Spain</p>
+    <p><i class="lucide" data-lucide="check-circle-2"></i>Always active dawg</p>
+  </div>
 
-    <div class="header__img">
-      <img src="images\WIN_20250224_00_31_41_Pro.jpg" alt="Foto de Javier">
-    </div>
+  <div>
+    <p>
+      <a href="https://github.com/liliarte-1" target="_blank">
+        <i class="lucide" data-lucide="github"></i>
+      </a>
 
-    <p class="header__texto textos">
-      Muy buenas compañeros del metal, soy estudiante de Inteligencia artificial (IA) + Ingeniería Informática. 
-      A lo largo de estos años he creado diferentes servicios de IA relacionados con la automatización de procesos y 
-      la ayuda para el desarrollo y aprendizaje con sus herramientas.
+      <a href="https://x.com/xokaspov/status/1935081291587760530" target="_blank">
+        <i class="lucide" data-lucide="twitter"></i>
+      </a>
+
+      <a href="https://youtu.be/znEqd8wl_ts" target="_blank">
+        <i class="lucide" data-lucide="youtube"></i>
+      </a>
     </p>
+  </div>
+</header>
 
-    <div class="header__ubi textos">
-      <p><i class="lucide" data-lucide="map-pin"></i>Zaragoza, España</p>
-      <p><i class="lucide" data-lucide="check-circle-2"></i>Siempre activo papi</p>
-    </div>
+<!-- ====== SECTION 1 ====== -->
+<section class="section1-grid" id="about">
+  <p class="section1__about caja-gris center">About me</p>
 
-    <div>
-      <p>
-  <a href="https://github.com/liliarte-1" target="_blank">
-    <i class="lucide" data-lucide="github"></i>
-  </a>
+  <figure class="section1__image">
+    <img src="assets/images/GzSL8iQWQAAVaCQ.jpg" alt="Foto personal en exteriores">
+  </figure>
 
-  <a href="https://x.com/xokaspov/status/1935081291587760530" target="_blank">
-    <i class="lucide" data-lucide="twitter"></i>
-  </a>
-
-   <a href="https://youtu.be/znEqd8wl_ts" target="_blank">
-    <i class="lucide" data-lucide="youtube"></i>
-  </a>
-</p>
-    </div>
-  </header>
-
-  <!-- ====== SECTION 1 ====== -->
-  <section class="section1-grid" id=#about>
-    <p class="section1__about caja-gris center">About me</p>
-
-    <figure class="section1__image">
-      <img src="images\GzSL8iQWQAAVaCQ.jpg" alt="Foto personal en exteriores">
-    </figure>
-
-    <div class="section1__text textos" >
-      <h2 class="titulos">Curious about me? Here you have it:</h2>
-      <p>
-        I’m an aspiring data-focused developer who enjoys working with Python and exploring the fascinating world of data.
-      </p> 
-      <p>
-        I feel comfortable working with databases like MongoDB, Redis, and PostgreSQL, and I also have a good grasp of HTML and web fundamentals.
-        I’m passionate about learning how data, logic, and design come together to create meaningful digital experiences. 
-      </p>
-      <p> 
+  <div class="section1__text textos">
+    <h2 class="titulos">Curious about me? Here you have it:</h2>
+    <p>
+      I’m an aspiring data-focused developer who enjoys working with Python and exploring the fascinating world of data.
+    </p> 
+    <p>
+      I feel comfortable working with databases like MongoDB, Redis, and PostgreSQL, and I also have a good grasp of HTML and web fundamentals.
+      I’m passionate about learning how data, logic, and design come together to create meaningful digital experiences. 
+    </p>
+    <p> 
       Although I’m still building my professional experience, I dedicate time every day to improving my skills and experimenting with new technologies. 
       I love understanding how things work under the hood and turning complex problems into clean, efficient solutions.
-      </p> 
-      <p> 
+    </p> 
+    <p> 
       In my personal life, I’d describe myself as an organized person who always strives to deliver the best possible work, no matter the task. 
       I’m a big fan of jazz and experimental music, and I believe creativity plays a key role both in art and technology. 
       I’m also a fast learner, adaptable to different environments, and I get along easily with people.
-      </p> 
+    </p> 
+    <ul>
+      <li>Avid learner</li>
+      <li>Creative</li>
+      <li>Adaptative</li>
+      <li>People person</li>
+    </ul>
+    <p>Finally, I’m open and available for any kind of project or collaboration. If you’ve got something in mind, feel free to reach out!</p>
+  </div>
+</section>
+
+<!-- ====== SECTION 2 ====== -->
+<section class="section2-grid">
+  <p class="section2__skills caja-gris center">Skills</p>
+  <p class="section2__subtitle subtitulos">The skills I am a pro in:</p>
+
+  <div class="skills-grid">
+    <figure class="skill">
+      <img src="assets/images/icons8-python-48.png" alt="Python"><figcaption>Python</figcaption>
+    </figure>
+    <figure class="skill">
+      <img src="assets/images/icons8-mongodb-48.png" alt="MongoDB"><figcaption>MongoDB</figcaption>
+    </figure>
+    <figure class="skill">
+      <img src="assets/images/icons8-postgresql-48.png" alt="PostgreSQL"><figcaption>PostgreSQL</figcaption>
+    </figure>
+    <figure class="skill">
+      <img src="assets/images/icons8-redis-48.png" alt="Redis"><figcaption>Redis</figcaption>
+    </figure>
+    <figure class="skill">
+      <img src="assets/images/icons8-html-50.png" alt="HTML"><figcaption>HTML</figcaption>
+    </figure>
+    <figure class="skill">
+      <img src="assets/images/icons8-c-50.png" alt="C++"><figcaption>C++</figcaption>
+    </figure>
+    <figure class="skill">
+      <img src="assets/images/icons8-chatbot-48.png" alt="ChatBots"><figcaption>ChatBots</figcaption>
+    </figure>
+    <figure class="skill">
+      <img src="assets/images/icons8-drums-48.png" alt="Drums"><figcaption>Drums</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ====== SECTION 3 (Experience) ====== -->
+<section class="section3-grid">
+  <p class="section3__title caja-gris center">Experience</p>
+  <p class="section3__subtitle subtitulos">The experiences I had chiquibai:</p>
+  <div class="exp-list">
+    <div class="exp-card">
+      <img class="exp-card__logo" src="assets/images/IMG_E6652.JPG" alt="Upwork">
+      <div class="exp-card__body textos">
+        <h3>Machine Learning Project Developer</h3>
+        <ul>
+          <li>Designed and implemented a complete supervised machine learning workflow from data preparation to model evaluation.</li>
+          <li>Built and trained a custom “AI” model using Python and key data science libraries.</li>
+          <li>Gained hands-on experience with dataset curation, feature engineering, and performance optimization.</li>
+          <li>Strengthened analytical and problem-solving abilities while managing the project independently.</li>
+        </ul>
+      </div>
+      <div class="exp-card__date textos">6-Month Training Program —> Completed</div>
+    </div>
+  </div>
+
+  <div class="exp-card">
+    <img class="exp-card__logo" src="assets/images/IMG_E6652.JPG" alt="Upwork">
+    <div class="exp-card__body textos">
+      <h3>Team Coordinator & Project Organizer</h3>
       <ul>
-        <li>Avid learner</li>
-        <li>Creative</li>
-        <li>Adaptative</li>
-        <li>People person</li>
+        <li>From a young age, I’ve been organizing and structuring every project I’ve taken part in, whether technical or not.</li>
+        <li>Skilled at identifying teammates’ strengths and assigning tasks to maximize overall performance.</li>
+        <li>Comfortable following direction while maintaining initiative and efficiency in teamwork.</li>
+        <li>Developed strong communication and coordination skills through diverse experiences.</li>
       </ul>
-      <p>Finally, I’m open and available for any kind of project or collaboration. If you’ve got something in mind, feel free to reach out!</p>
     </div>
-  </section>
+    <div class="exp-card__date textos">Personal Projects —> Ongoing</div>
+  </div>
 
-  <!-- ====== SECTION 2 ====== -->
-  <section class="section2-grid">
-
-      <p class="section2__skills caja-gris center">Skills</p>
-      <p class="section2__subtitle subtitulos">The skills I am a pro in:</p>
-    
-
-    <div class="skills-grid">
-      <figure class="skill">
-        <img src="images\icons8-python-48.png" alt="Python"><figcaption>Python</figcaption>
-      </figure>
-      <figure class="skill">
-        <img src="images\icons8-mongodb-48.png" alt="MongoDB"><figcaption>MongoDB</figcaption>
-      </figure>
-      <figure class="skill">
-        <img src="images\icons8-postgresql-48.png" alt="PostgreSQL"><figcaption>PostgreSQL</figcaption>
-      </figure>
-      <figure class="skill">
-        <img src="images\icons8-redis-48.png" alt="Redis"><figcaption>Redis</figcaption>
-      </figure>
-      <figure class="skill">
-        <img src="images\icons8-html-50.png" alt="HTML"><figcaption>HTML</figcaption>
-      </figure>
-      <figure class="skill">
-        <img src="images\icons8-c-50.png" alt="C++"><figcaption>C++</figcaption>
-      </figure>
-      <figure class="skill">
-        <img src="images\icons8-chatbot-48.png" alt="ChatBots"><figcaption>ChatBots</figcaption>
-      </figure>
-      <figure class="skill">
-        <img src="images\icons8-drums-48.png" alt="Drums"><figcaption>Drums</figcaption>
-      </figure>
+  <div class="exp-card">
+    <img class="exp-card__logo" src="assets/images/IMG_E6652.JPG" alt="Upwork">
+    <div class="exp-card__body textos">
+      <h3>Continuous Learner in AI & Data Technologies</h3>
+      <ul>
+        <li>Currently focused on deepening knowledge in Artificial Intelligence and Information Systems.</li>
+        <li>Always eager to experiment with new tools, frameworks, and development methodologies.</li>
+        <li>Open to collaboration, research, and real-world projects to apply and expand technical expertise.</li>
+        <li>Committed to continuous improvement and staying up-to-date in the fast-evolving tech field.</li>
+      </ul>
     </div>
-  </section>
+    <div class="exp-card__date textos">Self-Driven Learning —> Present</div>
+  </div>
+</section>
 
-  <!-- ====== SECTION 3 (Experience) ====== -->
-  <section class="section3-grid">
-    <p class="section3__title caja-gris center">Experience</p>
-    <p class="section3__subtitle subtitulos">The experiences I had chiquibai:</p>
-    <div class="exp-list">
-      <div class="exp-card">
-        <img class="exp-card__logo" src="images/IMG_E6652.JPG" alt="Upwork">
-        <div class="exp-card__body textos">
-          <h3>Machine Learning Project Developer</h3>
-          <ul>
-            <li>Designed and implemented a complete supervised machine learning workflow from data preparation to model evaluation.</li>
-            <li>Built and trained a custom “AI” model using Python and key data science libraries.</li>
-            <li>Gained hands-on experience with dataset curation, feature engineering, and performance optimization.</li>
-            <li>Strengthened analytical and problem-solving abilities while managing the project independently.</li>
-          </ul>
-        </div>
-        <div class="exp-card__date textos">6-Month Training Program —> Completed</div>
-      </div>
-    </div>
+<!-- ====== SECTION 4 (Work) ====== -->
+<section class="section4-grid" id="work">
+  <p class="section4__title caja-gris center">Work</p>
+  <p class="section4__subtitle subtitulos">Mis proyectos ferguson:</p>
 
-    <div class="exp-card">
-        <img class="exp-card__logo" src="images/IMG_E6652.JPG" alt="Upwork">
-        <div class="exp-card__body textos">
-          <h3>Team Coordinator & Project Organizer</h3>
-          <ul>
-            <li>From a young age, I’ve been organizing and structuring every project I’ve taken part in, whether technical or not.</li>
-            <li>Skilled at identifying teammates’ strengths and assigning tasks to maximize overall performance.</li>
-            <li>Comfortable following direction while maintaining initiative and efficiency in teamwork.</li>
-            <li>Developed strong communication and coordination skills through diverse experiences.</li>
-          </ul>
-        </div>
-        <div class="exp-card__date textos">Personal Projects —> Ongoing</div>
-      </div>
-    </div>
-
-    <div class="exp-card">
-        <img class="exp-card__logo" src="images/IMG_E6652.JPG" alt="Upwork">
-        <div class="exp-card__body textos">
-          <h3>Continuous Learner in AI & Data Technologies</h3>
-          <ul>
-            <li>Currently focused on deepening knowledge in Artificial Intelligence and Information Systems.</li>
-            <li>Always eager to experiment with new tools, frameworks, and development methodologies.</li>
-            <li>Open to collaboration, research, and real-world projects to apply and expand technical expertise.</li>
-            <li>Committed to continuous improvement and staying up-to-date in the fast-evolving tech field.</li>
-          </ul>
-        </div>
-        <div class="exp-card__date textos">Self-Driven Learning —> Present</div>
-      </div>
-    </div>
-
-    
-  </section>
-
-  <!-- ====== SECTION 4 (Work) ====== -->
-  <section class="section4-grid" id=work>
-    <p class="section4__title caja-gris center">Work</p>
-    <p class="section4__subtitle subtitulos">Mis proyectos ferguson:</p>
-
-    <div class="work-list">
-      <!-- normal -->
-      <div class="work-card">
-  <img class="work-card__image" src="images\444049657540-3.webp" alt="Mcqueen">
-  <div class="work-card__body textos">
-    <h3>ChatFimet – AI Chatbot Assistant</h3>
-    <p>
-      A conversational chatbot designed to provide intelligent and contextual responses using Natural Language Processing.
-    </p>
-    <p>
-      Built from scratch with Python, this project integrates a custom-trained model capable of learning from user interactions to improve over time.
-    </p>
-    <p>
-      It also includes a simple web interface for real-time chatting and data visualization of the model’s training performance.
-    </p>
-
-    <div class="tags">
-      <p>Python</p>
-      <p>Flask</p>
-      <p>TensorFlow</p>
-      <p>MongoDB</p>
-      <p>HTML</p>
-      <p>CSS</p>
-      <p>JavaScript</p>
-
-    </div>
-  </div> 
-</div>   
-
-
-      <!-- espejo -->
-  <div class="work-card mirror">
-    <img class="work-card__image" src="images\chatbot-icon-with-virtual-support-service-bot-or-online-artificial-intelligence-robot.webp" alt="Chatbot">
+  <div class="work-list">
+    <div class="work-card">
+      <img class="work-card__image" src="assets/images/444049657540-3.webp" alt="Mcqueen">
       <div class="work-card__body textos">
-      <h3>Pack&Go – Online Backpack Marketplace</h3>
-    <p>
-      An e-commerce platform focused on backpack sales, featuring product browsing, filtering, and a secure shopping cart system.
-    </p>
-    <p>
-      The project includes user authentication, database integration for product management, and a clean responsive design for an intuitive shopping experience.
-    </p>
-    <p>
-      Developed with scalability in mind, ready to expand to other product categories.
-    </p>
+        <h3>ChatFimet – AI Chatbot Assistant</h3>
+        <p>A conversational chatbot designed to provide intelligent and contextual responses using Natural Language Processing.</p>
+        <p>Built from scratch with Python, this project integrates a custom-trained model capable of learning from user interactions to improve over time.</p>
+        <p>It also includes a simple web interface for real-time chatting and data visualization of the model’s training performance.</p>
 
-    <div class="tags">
-      <p>HTML</p>
-      <p>CSS</p>
-      <p>JavaScript</p>
-      <p>Node.js</p>
-      <p>PostgreSQL</p>
-      <p>Express</p>
-      <p>Redis</p>
+        <div class="tags">
+          <p>Python</p>
+          <p>Flask</p>
+          <p>TensorFlow</p>
+          <p>MongoDB</p>
+          <p>HTML</p>
+          <p>CSS</p>
+          <p>JavaScript</p>
+        </div>
+      </div> 
+    </div>   
+
+    <div class="work-card mirror">
+      <img class="work-card__image" src="assets/images/chatbot-icon-with-virtual-support-service-bot-or-online-artificial-intelligence-robot.webp" alt="Chatbot">
+      <div class="work-card__body textos">
+        <h3>Pack&Go – Online Backpack Marketplace</h3>
+        <p>An e-commerce platform focused on backpack sales, featuring product browsing, filtering, and a secure shopping cart system.</p>
+        <p>The project includes user authentication, database integration for product management, and a clean responsive design for an intuitive shopping experience.</p>
+        <p>Developed with scalability in mind, ready to expand to other product categories.</p>
+
+        <div class="tags">
+          <p>HTML</p>
+          <p>CSS</p>
+          <p>JavaScript</p>
+          <p>Node.js</p>
+          <p>PostgreSQL</p>
+          <p>Express</p>
+          <p>Redis</p>
+        </div>
+      </div> 
     </div>
-  </div> 
-</div>
+  </div>
+</section>
 
-  </section>
-
-
-  <section class="section5-grid" id=testimonials>
+<section class="section5-grid" id="testimonials">
   <p class="section5__title caja-gris center">Testimonials</p>
   <p class="section5__subtitle subtitulos">Aca me desian que yo lo lograría:</p>
 
-  <!-- NOMBRE DE CLASE CORRECTO Y TODOS LOS CARDS DENTRO -->
   <div class="testimonials_grid">
+    <div class="testimonials-card">
+      <img class="testimonials-card__logo" src="assets/images/descargar.jpg" alt="Elon Musk">
+      <div class="testimonials-card__body textos">
+        <p>"If this guy keeps working like this, I might have to hire him for my next AI project. Brilliant mindset and execution!"</p>
+        <h3>Elon Musk</h3>
+        <p>CEO at SpaceX & Tesla</p>
+      </div>
+    </div>
 
-  <div class="testimonials-card">
-    <img class="testimonials-card__logo" src="images\descargar.jpg" alt="Elon Musk">
-    <div class="testimonials-card__body textos">
-      <p>"If this guy keeps working like this, I might have to hire him for my next AI project. Brilliant mindset and execution!"</p>
-      <h3>Elon Musk</h3>
-      <p>CEO at SpaceX & Tesla</p>
+    <div class="testimonials-card">
+      <img class="testimonials-card__logo" src="assets/images/captura-de-pantalla-2023-09-27-a-las-9-30-17-6513da125b878.webp" alt="Dr. Morales">
+      <div class="testimonials-card__body textos">
+        <p>"A dedicated and curious student with a natural instinct for problem-solving and data analysis. Always delivers beyond expectations."</p>
+        <h3>Dr. Laura Morales</h3>
+        <p>Data Science Professor</p>
+      </div>
+    </div>
+
+    <div class="testimonials-card">
+      <img class="testimonials-card__logo" src="assets/images/IMG_E6652.JPG" alt="Mateo">
+      <div class="testimonials-card__body textos">
+        <p>"Bro literally learns a new framework every week. If there’s a bug, he’ll find it—and fix yours too. Reliable and fast as hell."</p>
+        <h3>Mateo García</h3>
+        <p>Long-time Friend & Developer Buddy</p>
+      </div>
     </div>
   </div>
-
-  <div class="testimonials-card">
-    <img class="testimonials-card__logo" src="images\captura-de-pantalla-2023-09-27-a-las-9-30-17-6513da125b878.webp" alt="Dr. Morales">
-    <div class="testimonials-card__body textos">
-      <p>"A dedicated and curious student with a natural instinct for problem-solving and data analysis. Always delivers beyond expectations."</p>
-      <h3>Dr. Laura Morales</h3>
-      <p>Data Science Professor</p>
-    </div>
-  </div>
-
-  <div class="testimonials-card">
-    <img class="testimonials-card__logo" src="images\IMG_E6652.JPG" alt="Mateo">
-    <div class="testimonials-card__body textos">
-      <p>"Bro literally learns a new framework every week. If there’s a bug, he’ll find it—and fix yours too. Reliable and fast as hell."</p>
-      <h3>Mateo García</h3>
-      <p>Long-time Friend & Developer Buddy</p>
-    </div>
-  </div>
-
-</div>
-
 </section>
 
-<section class=section6-grid id=contact>
-<p class="section6__title caja-gris center">Get in touch</p>
+<section class="section6-grid" id="contact">
+  <p class="section6__title caja-gris center">Get in touch</p>
   <p class="section6__subtitle subtitulos">If you want to contact me</p>
- <div class="section6__contact textos">
-  <h2 onclick="copiarTexto('pingadeoro@gmail.com')" style="cursor:pointer;"><i class="lucide" data-lucide="mail-search"></i>pingadeoro@gmail.com <i class="lucide" data-lucide="copy"></i></h2>
-  <h2 onclick="copiarTexto('+34 1231345243')" style="cursor:pointer;"><i class="lucide" data-lucide="phone"></i>+34 1231345243 <i class="lucide" data-lucide="copy"></i> </h2>
- </div>
 
- <div class="section6__socials textos">
-  <p>
-    You can contact me here:
-  </p>
-<p>
-  <a href="https://github.com/liliarte-1" target="_blank">
-    <i class="lucide" data-lucide="github"></i>
-  </a>
+  <div class="section6__contact textos">
+    <h2 onclick="copiarTexto('fjlnrain4927@gmail.com')" style="cursor:pointer;"><i class="lucide" data-lucide="mail-search"></i>fjlnrain4927@gmail.com <i class="lucide" data-lucide="copy"></i></h2>
+    <h2 onclick="copiarTexto('+34 1231345243')" style="cursor:pointer;"><i class="lucide" data-lucide="phone"></i>+34 1231345243 <i class="lucide" data-lucide="copy"></i></h2>
+  </div>
 
-  <a href="https://x.com/xokaspov/status/1935081291587760530" target="_blank">
-    <i class="lucide" data-lucide="twitter"></i>
-  </a>
-
-   <a href="https://youtu.be/znEqd8wl_ts" target="_blank">
-    <i class="lucide" data-lucide="youtube"></i>
-  </a>
-</p>
-
-
- </div>
+  <div class="section6__socials textos">
+    <p>You can contact me here:</p>
+    <p>
+      <a href="https://github.com/liliarte-1" target="_blank"><i class="lucide" data-lucide="github"></i></a>
+      <a href="https://x.com/xokaspov/status/1935081291587760530" target="_blank"><i class="lucide" data-lucide="twitter"></i></a>
+      <a href="https://youtu.be/znEqd8wl_ts" target="_blank"><i class="lucide" data-lucide="youtube"></i></a>
+    </p>
+  </div>
 </section>
 
 <footer class="footer-grid">
-<p class="textos">
-2025 Made by Javier Liarte with Love
-</p>
+  <p class="textos">2025 Made by Javier Liarte with Love</p>
 </footer>
 
+<script src="https://unpkg.com/lucide@latest"></script>
+<script>lucide.createIcons();</script>
 
-  <!-- (Opcional) Iconos Lucide -->
-  <script src="https://unpkg.com/lucide@latest"></script>
-  <script>lucide.createIcons();</script>
 </body>
 
 </html>
