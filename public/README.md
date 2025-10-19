@@ -11,8 +11,13 @@ Features:
 - Lucide Icons – Lightweight icon system via Lucide
 
 Also:
+<<<<<<< HEAD
 In the styles.css is an explanation of properties used, to understand better the style of the web. Is in Spanish, because I am a Spanish student and if i have doubts is easier for me. Just traduce it. Sorry.
 I implemented a simple script to copy and paste the email and phone number.
+=======
+- In the styles.css is an explanation of properties used, to understand better the style of the web. The comments are in Spanish because I am a Spanish developer and I need to understand them if I come back to see my previous work. To translate them to English, just copy and paste them in ChatGPT or the classic traducer.
+- I implemented a simple script to copy and paste the email and phone number.
+>>>>>>> f9a121d802a2b4ca1ae78292914d392df7ca9c49
 
 Firebase Hosting – Deployed using Firebase for fast global delivery and SSL support.
 GitHub Integration – Version-controlled and published through GitHub Pages or Actions.
