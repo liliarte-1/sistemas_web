@@ -11,11 +11,10 @@ Features:
 - Lucide Icons – Lightweight icon system via Lucide
 
 Also:
-In the styles.css is an explanation of properties used, to understand better the style of the web.
+In the styles.css is an explanation of properties used, to understand better the style of the web. Is in Spanish, because I am a Spanish student and if i have doubts is easier for me. Just traduce it. Sorry.
 I implemented a simple script to copy and paste the email and phone number.
 
 Firebase Hosting – Deployed using Firebase for fast global delivery and SSL support.
-
 GitHub Integration – Version-controlled and published through GitHub Pages or Actions.
 
 structure:
@@ -27,3 +26,6 @@ project/
 ├── assets/
     ├── fonts/              # Local Inter font files (.woff2 / .woff)
     └── images/             # All image assets used across sections
+
+Link to the Firebase page: https://portfolioliartemisteraura.web.app/
+Link to the Github repo: https://github.com/liliarte-1/sistemas_web
